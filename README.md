@@ -1,3 +1,16 @@
-For example in Indian markets Axis and Icici bank moves in somewhat of a coherence. So first we find out the pairs which moves parallely(Correlation_NSE_100) with their corelation value.
-And then check each day with (Future_Stocks) data wether this pairs are in 3 standard deviation from their in general moves.
-Then we find which pair to trade with how much quantity and which side position too.
+Pair Trading Strategy (GitHub)
+
+Identified pairs of stocks with co-movement properties, modeling the spread and ratio relationships to quantify relative price behavior.
+
+Applied linear regression to model expected spread, computed residuals (error series), and used Augmented Dickey-Fuller (ADF) test to ensure stationarity (i.e. mean reversion of the residual series). 
+Zerodha
+
+Constructed a trade trigger: when the residual diverges beyond ± k standard deviations (signal threshold), enter long-short pair (buy cheap, short expensive), expecting reversion.
+
+Defined exit rules based on mean reversion or residual crossing back toward zero.
+
+Backtested across multiple stock pairs/market regimes, tracking metrics such as Sharpe ratio, drawdown, and win rate.
+
+Integrated signal generation into pipeline using Python (Pandas, statsmodels).
+
+Achieved consistent relative value alpha with robust risk controls (max drawdown bounds, entry size limits).
